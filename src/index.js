@@ -1,7 +1,14 @@
+require("dotenv").config();
 const express = require("express");
-const app = express();
+const morgan = require("morgan");
 
-const port = 3000;
+const app = express();
+app.use(morgan("tiny"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/link", require("./routes/linkroutes"));
+
+const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   res.send("Hello world");

@@ -1,0 +1,41 @@
+# How to get reddit video link
+1. Get reddit post url via the share option in reddit
+2. To get video url from reddit server add a .json to the last backslash in the url
+3. Reddit saves the video and seperately in their server
+4. Link can be found in fallback_url
+    [
+        0. {
+            kind: "Listing",
+            data: {
+                ...,
+                children: {
+[                    data : {
+                        ...,
+                        media(or secure_media): {
+                            reddit_video: {
+                                ...,
+                                fallback_url: url
+                            }
+                        }
+                    }]
+                }
+            }
+        }
+    ]
+    you get something like https://v.redd.it/jvjih3f8sd4b61/DASH_1080.mp4?source=fallback
+5. The will be no sound
+6. You have to get the sound
+7. Sound url is not available in the json data
+8. To get the sound replace the video quality with "audio" 
+    DASH_1080.mp4 to DASH_audio.mp4
+9. You can change the quality of the video by again changing the video quality
+[Note] the video quality you get on the url is the highest quality and you can work your way down from that
+8. Thumbnail can also be found in the json object
+
+Things to do for this project
+
+[] Get reddit post url
+[] Get video url
+[] Download video and Sound
+[] Combine the 2 using ffmpeg
+[] Provide link to download video
