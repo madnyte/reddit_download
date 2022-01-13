@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/link", require("./routes/linkroutes"));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   res.send("Hello world");
